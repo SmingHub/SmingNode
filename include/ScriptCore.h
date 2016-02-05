@@ -9,6 +9,8 @@
 #define INCLUDE_SCRIPTCORE_H_
 
 #include "TinyJS.h"
+//#include "TinyJS_Functions.h"
+#include "TinyJS_MathFunctions.h"
 
 class ScriptCore : public CTinyJS
 {
@@ -16,6 +18,12 @@ public:
 	typedef Delegate<void()> DelegateV;
 	typedef Delegate<void(bool)> DelegateSetB;
 	typedef Delegate<bool()> DelegateGetB;
+
+	ScriptCore()
+	{
+		//registerFunctions(this);
+		registerMathFunctions(this);
+	}
 
 	// VOID //
 public:
