@@ -1,7 +1,8 @@
 # SmingNode
 
-SmingNode is the **smart home automation brick** which combine scripting languages flexibility with Sming Framework powerful. Joined into network, SmingNode sensors can provide unified and complex smart automation solution which will work even without internet connection.
+SmingNode is the smart home automation brick which combine scripting languages flexibility with Sming Framework powerful. Joined into network, SmingNode sensors can provide unified and complex smart automation solution which will work even without internet connection.
 
+### Smart home automation brick
 All sensors and automation algorithms described in universal JSON configuration. SmingNode collects data and work with slaves devices as described in that internal config, which provides a very easy and fast maintenance.
 
 All sensor values aggregated and accessible realtime by MQTT and HTTP protocols.
