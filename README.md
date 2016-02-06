@@ -8,7 +8,7 @@ All sensors and automation algorithms described in universal JSON configuration.
 All sensor values aggregated and accessible realtime by MQTT and HTTP protocols.
 
 ### Configuration
-[Read full config specification](config-specification)
+[Read full config specification](https://github.com/SmingHub/SmingNode/wiki/config-specification)
 
 Minimal configuration starrts from single node (and optional MQTT to collect sensors data). Below is the example of bathroom automation config:
 ```JSON
@@ -75,7 +75,7 @@ Wiring for outputs:
 
 This configuration collect temperature, hummidity, light intensity, and send it to MQTT broker. It will turn fun ON if it's dark and wet in the bathroom, but you can start or stop fan manually by switching hard mode button (timer will switch system back to auto mode after 10 minutes).
 
-More details about configuration here: [config specification](config-specification)
+More details about configuration here: [config specification](https://github.com/SmingHub/SmingNode/wiki/config-specification)
 
 SmingNode script engine based on https://github.com/gfwilliams/tiny-js with small adaptations. It's very simple but really powerfull and extensible because of Sming Framework backend.
 
