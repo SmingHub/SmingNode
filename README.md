@@ -84,7 +84,10 @@ To build project please update to current Sming **development branch**.
 
 https://github.com/SmingHub/Sming/tree/develop
 
+Use Espressif SDK v1.5
+
 ### TODO
 * RBoot OTA updates
 * Web interface for config editor
 * WebSocket realtime sensors data streaming (like current MQTT implementation)
+* Friendly Web UI
