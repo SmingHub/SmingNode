@@ -10,7 +10,7 @@ All sensor values aggregated and accessible realtime by MQTT and HTTP protocols.
 ### Configuration
 [Read full config specification](https://github.com/SmingHub/SmingNode/wiki/config-specification)
 
-Minimal configuration starrts from single node (and optional MQTT to collect sensors data). Below is the example of bathroom automation config:
+Minimal configuration starrts from single node (and optional MQTT broker to collect sensors data). Below is the example of bathroom automation config:
 ```JSON
 {
 	"name": "esp_bathroom",
