@@ -11,6 +11,7 @@
 #include "Sensor.h"
 
 class DHT;
+class DS18S20;
 
 class SensorDHT : public Sensor
 {
@@ -45,6 +46,20 @@ public:
 //		state = digitalRead(pin);
 	}
 	virtual void onFinish();
+};
+
+class SensorDS1820 : public Sensor
+{
+public:
+	SensorDS1820() : Sensor(700) {}
+	~SensorDS1820();
+
+	virtual void onLoad(JsonObject& data);
+	virtual void onBegin();
+	virtual void onFinish();
+
+private:
+	DS18S20 *ds;
 };
 
 #endif /* SPECIFICSENSORS_H_ */

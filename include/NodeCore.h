@@ -31,9 +31,10 @@ public:
 
 	NodeCore();
 	bool load();
-	virtual Sensor* createSensor(String type, JsonObject& data);
 
 	void save();
+
+	virtual Sensor* createSensor(String type, JsonObject& data);
 
 	void executeJS(String cmd);
 	double evaluateJS(const String& cmd);

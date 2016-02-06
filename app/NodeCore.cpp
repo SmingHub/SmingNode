@@ -2,7 +2,6 @@
 #include <SmingCore/SmingCore.h>
 #include "NodeCore.h"
 #include "Sensor.h"
-#include "SpecificSensors.h"
 #include "Trigger.h"
 #include "TaskTimer.h"
 #include "ScriptCore.h"
@@ -215,18 +214,7 @@ double NodeCore::evaluateJS(const String& cmd)
 
 Sensor* NodeCore::createSensor(String type, JsonObject& data)
 {
-	Sensor* result = nullptr;
-	if (type == "dht22")
-		result = new SensorDHT(type);
-	else if (type == "analog")
-		result = new SensorAnalogReader();
-	else if (type == "button")
-		result = new SensorButton();
-	else
-	{
-		debugf("UNKN SENSOR: %s", type.c_str());
-		return result;
-	}
+	Sensor* result = Sensor::sensorFactory(type);
 
 	result->setParent(this);
 	result->load(data);

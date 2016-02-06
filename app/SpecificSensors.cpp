@@ -9,6 +9,7 @@
 #include <SmingCore/SmingCore.h>
 #include "SpecificSensors.h"
 #include <Libraries/DHT/DHT.h>
+#include <Libraries/DS18S20/ds18s20.h>
 
 
 SensorDHT::SensorDHT(String type) :
@@ -77,4 +78,36 @@ void SensorButton::onFinish()
 	int pin = pins[DFNAME];
 	bool state = digitalRead(pin);
 	store(state);
+}
+
+/////////
+
+SensorDS1820::~SensorDS1820()
+{
+	delete ds;
+}
+
+void SensorDS1820::onLoad(JsonObject& data)
+{
+	int pin = pins[DFNAME];
+	ds = new DS18S20();
+	ds->Init(pin);
+}
+
+void SensorDS1820::onBegin()
+{
+	ds->StartMeasure();
+}
+
+void SensorDS1820::onFinish()
+{
+	if (ds->GetSensorsCount() == 0)
+	{
+		debugf("DS1820 not found");
+	}
+
+	if (ds->IsValidTemperature(0))
+		store(ds->GetCelsius(0));
+	else
+		debugf("DS1820 temperature not valid");
 }

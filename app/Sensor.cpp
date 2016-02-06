@@ -2,6 +2,7 @@
 #include <SmingCore/SmingCore.h>
 #include "Sensor.h"
 #include "NodeCore.h"
+#include "SpecificSensors.h"
 
 double Variable::getValue() const
 {
@@ -21,6 +22,26 @@ String Variable::getFullName(const unsigned char separator /*= '.'*/)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Sensor* Sensor::sensorFactory(String type)
+{
+	Sensor* result = nullptr;
+	if (type == "analog")
+		result = new SensorAnalogReader();
+	else if (type == "button")
+		result = new SensorButton();
+	else if (type == "dht22" || type == "dht11" || type == "dht21")
+		result = new SensorDHT(type);
+	else if (type == "ds1820" ||  type == "ds18b20")
+		result = new SensorDS1820();
+	else
+	{
+		debugf("UNKN SENSOR: %s", type.c_str());
+		return result;
+	}
+
+	return result;
+}
 
 void Sensor::load(JsonObject& data)
 {

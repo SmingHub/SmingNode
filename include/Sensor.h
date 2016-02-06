@@ -36,6 +36,8 @@ private:
 class Sensor : public WorkingObject
 {
 public:
+	static Sensor* sensorFactory(String type);
+
 	virtual void load(JsonObject& data);
 
 	virtual bool execute()
